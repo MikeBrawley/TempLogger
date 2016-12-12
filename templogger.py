@@ -50,7 +50,6 @@ def stream_temp(streamer):
         temp_c = read_temp()
         temp_f = temp_c * 9.0 / 5.0 + 32.0
         streamer.log(STREAM_NAME, temp_f)
-        print "Temperature: " + str(temp_f) + " F"
         streamer.flush()
         time.sleep(INTERVAL)
 
