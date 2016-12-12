@@ -14,11 +14,12 @@ INTERVAL = .5				# The interval you want to pull temp
 # ----------------------------
 
 
-GPIO_PIN_NUMBER = 21  #GPIO pin for off switch
+GPIO_SWITCH_PIN = 21  #GPIO pin for off switch
+GPIO_LED_PIN = 18  #GPIO pin for the script LED
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(18,GPIO.OUT)
-GPIO.setup(GPIO_PIN_NUMBER, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(PGIO_LED_PIN,GPIO.OUT)
+GPIO.setup(GPIO_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -59,14 +60,14 @@ def main():
     # Start temperature stream thread
     try:
         thread.start_new_thread(stream_temp, (streamer, ))
-	GPIO.output(18,GPIO.HIGH)
+	GPIO.output(GPIO_LED_PIN,GPIO.HIGH)
     except:
         print "Error: unable to start temperature streamer thread"
         pass
 	# Button
     try:
         ## if button is pressed
-        GPIO.wait_for_edge(GPIO_PIN_NUMBER, GPIO.FALLING)
+        GPIO.wait_for_edge(GPIO_SWITCH_PIN, GPIO.FALLING)
         os.system("sudo shutdown -h now")
     except:
         pass
