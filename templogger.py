@@ -10,7 +10,7 @@ BUCKET_NAME = "your_bucket_name"    	#Your Initial State Bucket Name
 BUCKET_KEY = "your_bucket_key"    	# your Initial State Bucket Key
 ACCESS_KEY = "your_access_key"  	# your Access Key for InitialState.com
 STREAM_NAME= "your_stream_name" 	# The name of this temperature sensor
-INTERVAL = .5				# The interval you want to pull temp
+INTERVAL = 300				# The interval you want to pull temp in seconds
 # ----------------------------
 
 
