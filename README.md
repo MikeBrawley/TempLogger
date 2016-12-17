@@ -5,11 +5,11 @@ To setup your raspberry pi Install Raspbian
 
 Configure your Pi 
 
-$ sudo nano /boot/config.txt
-
 $ sudo apt-get install git-core
 
 $ git clone https://github.com/MikeBrawley/templogger.git
+
+$ sudo nano /boot/config.txt
 
 if the following line is not alaready in this file, add it and save the file 
 
@@ -21,11 +21,13 @@ $ sudo reboot
 
 Install Initial State
 
-$ cd /home/pi/ $ \curl -sSl https://get.initialstate.com/python -o - | sudo bash
+$ cd /home/pi/ 
+
+$ \curl -sSl https://get.initialstate.com/python -o - | sudo bash
 
 To set the TempLogger to auto run
 
-$ sudo nano crontab -e
+$ sudo crontab -e
 
 Add the following line to the bottom of the file 
 
