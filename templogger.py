@@ -18,7 +18,7 @@ GPIO_SWITCH_PIN = 21  #GPIO pin for off switch
 GPIO_LED_PIN = 18  #GPIO pin for the script LED
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(PGIO_LED_PIN,GPIO.OUT)
+GPIO.setup(GPIO_LED_PIN,GPIO.OUT)
 GPIO.setup(GPIO_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 os.system('modprobe w1-gpio')
